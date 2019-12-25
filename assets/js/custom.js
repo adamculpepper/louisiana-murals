@@ -13,7 +13,7 @@ $(function() {
 	var loadMuralData = function() {
 		sheetrock({
 			url: sheetMurals,
-			query: 'select A,B,C,D,E,F,G,H',
+			query: 'select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P where O = true',
 			callback: callbackMurals
 		});
 	}
@@ -56,20 +56,11 @@ $(function() {
 		init();
 	}
 
-
-
-
 	var init = function() {
 		loadMuralMap();
 		$('body').removeClass('loading');
 		$('#content').removeClass('loading-spinner');
 	}
-
-	
-
-
-
-
 
 	function loadMuralMap() {
 		var map;
@@ -117,11 +108,9 @@ $(function() {
 				bound.extend( new google.maps.LatLng(arrayMuralLocations[i].lat, arrayMuralLocations[i].lng) );
 			}
 
-			console.log( bound.getCenter() );
 			map.fitBounds(bound);
 		}
 		centerMap();
-
 
 		// var chicago = {lat: 41.850, lng: -87.650};
 
