@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Louisiana Murals</title>
+		<meta name="author" content="Louisiana Murals">
+		<meta name="description" content="">
+		<!-- <link href="favicon.ico" rel="shortcut icon"> -->
+		<!-- <link href="favicon.png" rel="apple-touch-icon-precomposed"> -->
+
+		<!-- styles -->
+		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+		<link rel="stylesheet" href="./assets/css/stylish-select.css">
+		<link rel="stylesheet" href="./assets/css/styles.css">
+
+		<!-- open graph meta -->
+		<meta property="og:title" content="Louisiana Murals">
+		<meta property="og:site_name" content="Louisiana Murals">
+		<meta property="og:description" content="">
+		<meta property="og:url" content="https://louisianamurals.com">
+		<meta property="og:image" content="">
+		<meta name="twitter:image" content="">
+	</head>
+	<body class="loading slimscroll">
+		<header>
+			<div class="d-md-flex align-items-center">
+				<div class="logo d-md-inline-block">
+					<a class="mr-0 mr-md-4" href="/">Louisiana Murals</a>
+				</div>
+			</div>
+		</header>
+
+		<div id="content" class="loading-spinner loading-spinner-inverted center-to-window">
+			<div id="mural-map"></div>
+
+			<div class="row mt-4 mx-1">
+				<!-- ko foreach: arrayMuralsData -->
+					<div class="col-sm-6 col-lg-4">
+						<div class="card" data-bind="style: {'background-image': 'url(' + FeatureImage + ')'}">
+							<div class="card-body">
+								<div class="title mb-2">
+									<span>
+										<h2 data-bind="text: Name"></h2>
+									</span>
+								</div>
+								<div class="location mb-2" data-bind="visible:LocationCity != ''">
+									<span>
+										<i class="fas fa-map-marker-alt mr-1"></i>
+										<span class="city" data-bind="text: LocationCity"></span>
+										<span class="state">, LA</span>
+									</span>
+								</div>
+								<div class="links">
+									<a target="group" rel="nofollow" class="fa fa-link mr-2" data-bind="visible:ArtistWebsite != '', attr: {'href': ArtistWebsite}"></a>
+									<!-- <a target="group" rel="nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a> -->
+									<!-- <a target="group" rel="nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				<!-- /ko -->
+
+
+			</div>
+		</div>
+
+		<footer>
+			<div class="d-lg-flex">
+				<div>
+					<div class="d-block d-md-inline-block mb-3 mb-md-0">
+						<a href="/">Louisiana Murals</a>
+					</div>
+					<span class="ml-1 hidden-sm-down">is</span>
+					<span class="ml-1"><i class="fas fa-code"></i></span>
+					<span class="ml-1">with</span>
+					<span class="ml-1"><i class="fas fa-heart"></i></span>
+					<span class="ml-1">by</span>
+					<a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="./assets/img/adam.jpg"></a>
+				</div>
+				<div class="d-block d-lg-inline-block mt-3 mt-lg-0 ml-auto">
+					<a target="_blank" href="https://github.com/LouisianaGroups">
+						<span class="">edit this page</span>
+						<i class="fab fa-github ml-2"></i>
+					</a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/bootstrap.min.js"></script>
+		<script src="./assets/js/knockout.min.js"></script>
+		<script src="./assets/js/sheetrock.min.js"></script>
+		<script src="./assets/js/isotope.min.js"></script>
+		<script src="./assets/js/stylish-select.js"></script>
+		<script src="./assets/js/custom.js"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmRmGcaxuvWMoAcBEwZS9k_cpFy3c7xeY"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116383596-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-116383596-1');
+		</script>
+	</body>
+</html>
