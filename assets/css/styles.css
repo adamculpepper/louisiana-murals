@@ -26,53 +26,57 @@ input[type='email'] {width:100%;}
 /* ------------------------------ */
 
 /* Bootstrap Resets */
-.card {height:300px; margin-bottom:2rem; background-repeat:no-repeat; background-size:cover; background-position:center center; border-radius:5px; border:1px solid rgba(0, 0, 0, 0.3); transition:all 0.50s;}
-.card:hover {border-color:rgba(0, 0, 0, 0.7); box-shadow:0 0 3px 2px rgba(0, 0, 0, 0.320);}
+.card {height:300px; margin-bottom:2rem; background-repeat:no-repeat; background-size:cover; background-position:center center; border:1px solid #ccc; transition:all 0.50s;}
+.card:hover {border-color:#999; box-shadow:0 0 5px 3px rgba(0, 0, 0, 0.15);}
 
-.card .card-body {position:relative; font-weight:900;}
+.card .card-body {position:relative; font-weight:400;}
+/*
 .card .card-body a {padding:10px; background:rgba(255, 255, 255, 0.50);}
 .card .card-body a:hover {background:rgba(255, 255, 255, 0.80);}
+*/
 
-.card .card-body .icon {position:absolute; bottom:20px; right:20px; color:rgba(0, 0, 0, 0.20);}
-.card .card-body .icon i {margin:0 20px; opacity:0.70; font-size:75px;}
-.card .card-body .icon i:first-of-type,
-.card .card-body .icon i:last-of-type {margin:0;}
-.card .card-body .icon i.fa.half {font-size:30px;}
-
-.card .card-body .links {position:absolute; bottom:20px; left:20px;}
-.card .card-body .links a {float:left; font-size:30px;}
-.card .card-body .links a:last-of-type {margin-right:0;}
-
-.card .card-body .title {margin-left:10px;}
-.card .card-body .title span {background:none; padding:0;}
-.card .card-body .title h2 {
+.card .card-body > .title {margin-left:10px;}
+.card .card-body > .title span {background:none; padding:0;}
+.card .card-body > .title h2 {
 	display:inline;
 	padding:5px 0;
-	font-weight:bold;
+	font-weight:900;
 	line-height:49px;
 	background:rgba(255, 255, 255, 0.50);
 	box-shadow:10px 0 0 rgba(255, 255, 255, 0.50), -10px 0 0 rgba(255, 255, 255, 0.50);
 }
 
-/* white blocks inside the card */
-.card .card-body .location > span,
-.card .card-body .next-event .event-date {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.50);}
+.card .card-body .location {font-weight:700;}
 
-.card .card-body .next-event a.fa {font-size:15px;}
+/* white blocks inside the card */
+.card .card-body .location > span {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.50);}
+
+.card .card-body .info {position:absolute; bottom:20px; left:20px;}
+
+.card .card-body .info i {font-size:30px;}
+.card .card-body .info .dropdown-toggle {background:transparent; padding:5px; border:0; background:rgba(255, 255, 255, 0.50); line-height:normal;}
+.card .card-body .info .dropdown-toggle:after {display:none;}
+.card .card-body .info .dropdown-toggle:hover {cursor:pointer;}
+
+.card .card-body .info .dropdown-menu {/*display:block;*/ width:300px; max-width:500px;}
+.card .card-body .info .dropdown-menu .label {font-weight:700;}
+.card .card-body .info .dropdown-menu .value:not(:last-of-type) {margin-bottom:1rem;}
 
 /* ------------------------------ */
 
 /* Content Styles */
 header, footer {background:#555; padding:20px;}
 
-header, header a,
-footer, footer a {color:#ccc;}
-header a, footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
-header a:hover, footer a:hover {color:#222; background:rgba(255, 255, 255, 0.3);}
+header {background-image:linear-gradient(-225deg, #ad96e2 0%, #4ba9ce 100%);}
+footer {background-image:linear-gradient(-225deg, #4ba9ce 0%, #ad96e2 100%);}
 
-header .logo {font-size:30px;}
-header .logo a {color:#ddd; font-weight:bold; letter-spacing:1px;}
-header .logo a:hover {color:#fff;}
+header, header a,
+footer, footer a {color:#eee;}
+header a, footer a {display:inline-block; padding:5px 10px; background:rgba(255, 255, 255, 0.2);}
+header a:hover, footer a:hover {color:#fff; background:rgba(255, 255, 255, 0.3);}
+
+header .logo {font-size:30px; margin-bottom:0;}
+header .logo a {font-weight:bold; letter-spacing:1px;}
 
 header #controls {font-size:20px;}
 

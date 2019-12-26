@@ -27,9 +27,9 @@
 	<body class="loading slimscroll">
 		<header>
 			<div class="d-md-flex align-items-center">
-				<div class="logo d-md-inline-block">
-					<a class="mr-0 mr-md-4" href="/">Louisiana Murals</a>
-				</div>
+				<h1 class="logo">
+					<a href="/">Louisiana Murals</a>
+				</h1>
 			</div>
 		</header>
 
@@ -39,31 +39,49 @@
 			<div class="row mt-4 mx-1">
 				<!-- ko foreach: arrayMuralsData -->
 					<div class="col-sm-6 col-lg-4">
-						<div class="card" data-bind="style: {'background-image': 'url(' + FeatureImage + ')'}">
-							<div class="card-body">
-								<div class="title mb-2">
-									<span>
-										<h2 data-bind="text: Name"></h2>
-									</span>
-								</div>
-								<div class="location mb-2" data-bind="visible:LocationCity != ''">
-									<span>
-										<i class="fas fa-map-marker-alt mr-1"></i>
-										<span class="city" data-bind="text: LocationCity"></span>
-										<span class="state">, LA</span>
-									</span>
-								</div>
-								<div class="links">
-									<a target="group" rel="nofollow" class="fa fa-link mr-2" data-bind="visible: $data.Artist1Website != '', attr: {'href': $data.Artist1Website}"></a>
-									<!-- <a target="group" rel="nofollow" class="fab fa-facebook mr-2" data-bind="visible:Facebook != '', attr: {'href': Facebook}"></a> -->
-									<!-- <a target="group" rel="nofollow" class="fab fa-twitter mr-2" data-bind="visible:Twitter != '', attr: {'href': Twitter}"></a> -->
+						<div class="card-border">
+							<div class="card" data-bind="style: {'background-image': 'url(' + FeatureImage + ')'}">
+								<div class="card-body">
+									<div class="title mb-2">
+										<span>
+											<h2 data-bind="text: Name"></h2>
+										</span>
+									</div>
+									<div class="location mb-2" data-bind="visible:LocationCity != ''">
+										<span>
+											<i class="fas fa-map-marker-alt mr-1"></i>
+											<span class="city" data-bind="text: LocationCity"></span>
+											<span class="state">, LA</span>
+										</span>
+									</div>
+
+									<!-- ko if: $data.InfoArtists || $data.Notes -->
+									<div class="info">
+										<div class="btn-group dropup">
+											<button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<i class="fas fa-info-circle"></i>
+											</button>
+											<div class="dropdown-menu p-3">
+
+												<!-- ko if: $data.InfoArtists -->
+												<div class="label">Artists</div>
+												<div class="value" data-bind="html: $data.InfoArtists"></div>
+												<!-- /ko -->
+
+												<!-- ko if: $data.Notes -->
+												<div class="label">Notes</div>
+												<div class="value" data-bind="html: $data.Notes"></div>
+												<!-- /ko -->
+
+											</div>
+										</div>
+									</div>
+									<!-- /ko -->
 								</div>
 							</div>
 						</div>
 					</div>
 				<!-- /ko -->
-
-
 			</div>
 		</div>
 
@@ -81,7 +99,7 @@
 					<a class="ml-1" target="_blank" href="http://adamculpepper.net"><img class="rounded-circle" src="./assets/img/adam.jpg"></a>
 				</div>
 				<div class="d-block d-lg-inline-block mt-3 mt-lg-0 ml-auto">
-					<a target="_blank" href="https://github.com/LouisianaGroups">
+					<a target="_blank" href="https://github.com/adamculpepper/louisiana-murals">
 						<span class="">edit this page</span>
 						<i class="fab fa-github ml-2"></i>
 					</a>

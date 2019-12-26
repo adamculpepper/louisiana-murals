@@ -13,7 +13,7 @@ $(function() {
 	var loadMuralData = function() {
 		sheetrock({
 			url: sheetMurals,
-			query: 'select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P where O = true',
+			query: 'select A,B,C,D,E,F,G,H,I,J,K,L,M,N,O where O = true',
 			callback: callbackMurals
 		});
 	}
@@ -38,9 +38,7 @@ $(function() {
 			array.push(tempArray);
 		}
 
-		arrayMuralsData(array);
-		
-		arrayMuralsData().forEach(function(item, index) {
+		array.forEach(function(item, index) {
 			if (item.Lat && item.Long) {
 				arrayMuralLocations.push({
 					title: item.Name,
@@ -49,6 +47,33 @@ $(function() {
 				});
 			}
 		});
+
+		array.forEach(function(item, index) {
+			var contentInfoArtists = '';
+
+			if (item.Artist1Name || item.Artist2Name) {
+
+				if (item.Artist1Name && item.Artist1Website) {
+					contentInfoArtists += '<a target="artist" href="' + item.Artist1Website + '">' + item.Artist1Name + '</a>';
+				} else if (item.infoArtistName1 && !item.Artist1Website) {
+					contentInfoArtists += item.Artist1Name;
+				}
+
+				if (item.Artist1Name && item.Artist2Name) {
+					contentInfoArtists += ', ';
+				}
+
+				if (item.Artist2Name && item.Artist2Website) {
+					contentInfoArtists += '<a target="artist" href="' + item.Artist2Website + '">' + item.Artist2Name + '</a>';
+				} else if (item.infoArtistName2 && !item.Artist2Website) {
+					contentInfoArtists += item.Artist2Name;
+				}
+
+				array[index].InfoArtists = contentInfoArtists;
+			}
+		});
+
+		arrayMuralsData(array);
 
 		console.table(arrayMuralsData());
 		console.table(arrayMuralLocations);
@@ -60,6 +85,7 @@ $(function() {
 		loadMuralMap();
 		$('body').removeClass('loading');
 		$('#content').removeClass('loading-spinner');
+		$('[data-toggle="tooltip"]').tooltip();
 	}
 
 	function loadMuralMap() {
@@ -127,8 +153,9 @@ $(function() {
 	//loadMuralMap();
 });
 
-
-
+var cleanURL = function(url) {
+	return url.replace('https://', '').replace('http://', '').replace('www.', '')
+}
 
 var googleMapStyles = [{
 		"featureType": "all",
